@@ -36,12 +36,12 @@ const Login = () => {
   return (
     <div>
       <div className="bg-[#456990]">
-        <h1 className="text-3xl text-center text-[#ffffff]">Login</h1>
+        <h1 className="text-3xl text-center text-[#d6b880]">Login</h1>
         <div className="flex justify-between flex-col">
           <form>
             <input
               type="email"
-              className="bg-[#516cbc] border border-gray-300 text-[#ffffff] text-base rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-96 p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-[#ffffff] mx-auto my-5"
+              className="bg-[#516cbc] border border-gray-300 text-[#d6b880] text-base rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-96 p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-[#ffffff] mx-auto my-5"
               placeholder="Enter Email"
               autoComplete="jaymalasana051@gmail.com"
               onChange={(e) => setEmail(e.target.value)}
@@ -49,7 +49,7 @@ const Login = () => {
             />
             <input
               type="password"
-              className="bg-[#516cbc] border border-gray-300 text-[#ffffff] text-base rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-96 p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-[#ffffff] mx-auto my-5"
+              className="bg-[#516cbc] border border-gray-300 text-[#d6b880] text-base rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-96 p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-[#ffffff] mx-auto my-5"
               placeholder="Enter Password"
               autoComplete=""
               onChange={(e) => setPassword(e.target.value)}
@@ -57,7 +57,7 @@ const Login = () => {
             />
             <button
               type="button"
-              className="mx-auto my-5 bg-[#516cbc] border border-gray-300 text-[#ffffff] text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-28 p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white hover:bg-[#132048]"
+              className="mx-auto my-5 bg-[#516cbc] border border-gray-300 text-[#d6b880] text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-28 p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white hover:bg-[#132048]"
               onClick={handleClick}
             >
               Login
