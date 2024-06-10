@@ -16,7 +16,7 @@ function App() {
               path="/"
               element={
                 <h1 className="w-full bg-[#456990] text-3xl h-20 text-[#d6b880]">
-                  Product Listing Component{" "}
+                  Product Listing Component
                 </h1>
               }
             />
@@ -24,7 +24,7 @@ function App() {
               path="/add"
               element={
                 <h1 className="w-full bg-[#456990] text-3xl  h-20 text-[#d6b880]">
-                  Add Product Component{" "}
+                  Add Product Component
                 </h1>
               }
             />{" "}
@@ -32,15 +32,15 @@ function App() {
               path="/update"
               element={
                 <h1 className="w-full bg-[#456990] text-3xl h-20 text-[#d6b880]">
-                  Update Product Component{" "}
+                  Update Product Component
                 </h1>
               }
-            />{" "}
+            />
             <Route
               path="/logout"
               element={
                 <h1 className="w-full bg-[#456990] text-3xl h-20 text-[#d6b880]">
-                  Logout Component{" "}
+                  Logout Component
                 </h1>
               }
             />
@@ -48,12 +48,12 @@ function App() {
               path="/profile"
               element={
                 <h1 className="w-full bg-[#456990] text-3xl h-20 text-[#d6b880]">
-                  Profile Component{" "}
+                  Profile Component
                 </h1>
               }
             />
-            <Route path="/login" element={<Login />} />
           </Route>
+          <Route path="/login" element={<Login />} />
           <Route path="/signup" element={<SignUp />} />
         </Routes>
       </BrowserRouter>
