@@ -16,8 +16,8 @@ const ProductList = () => {
   return (
     <div className="bg-[#456990]">
       <h1 className="text-3xl text-center text-[#d6b880]">Product List</h1>
-      {products.map((product) => (
-        <div key={product.id} className="container mx-auto p-4">
+      {products.map((product, index) => (
+        <div key={index} className="container mx-auto p-4">
           <table className="min-w-full divide-y divide-gray-200">
             <thead className="bg-gray-50">
               <tr>
