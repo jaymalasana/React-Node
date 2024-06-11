@@ -41,7 +41,7 @@ const Login = () => {
           <form>
             <input
               type="email"
-              className="bg-[#516cbc] border border-gray-300 text-[#d6b880] text-base rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-96 p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-[#ffffff] mx-auto my-5"
+              className="bg-[#516cbc] border border-gray-300 text-[#d6b880] text-base rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-96 p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-[#d6b880] mx-auto my-5"
               placeholder="Enter Email"
               autoComplete="jaymalasana051@gmail.com"
               onChange={(e) => setEmail(e.target.value)}
@@ -49,7 +49,7 @@ const Login = () => {
             />
             <input
               type="password"
-              className="bg-[#516cbc] border border-gray-300 text-[#d6b880] text-base rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-96 p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-[#ffffff] mx-auto my-5"
+              className="bg-[#516cbc] border border-gray-300 text-[#d6b880] text-base rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-96 p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-[#d6b880] mx-auto my-5"
               placeholder="Enter Password"
               autoComplete=""
               onChange={(e) => setPassword(e.target.value)}
