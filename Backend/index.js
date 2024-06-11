@@ -6,7 +6,6 @@ const Product = require("./db/Product");
 
 const app = express();
 
-// Enable All CORS Requests
 app.use(cors());
 
 app.use(express.json());

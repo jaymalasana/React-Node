@@ -5,6 +5,7 @@ import SignUp from "./components/SignUp";
 import PrivateComponent from "./components/PrivateComponent";
 import Login from "./components/Login";
 import AddProduct from "./components/AddProduct";
+import ProductList from "./components/ProductList";
 
 function App() {
   return (
@@ -16,9 +17,7 @@ function App() {
             <Route
               path="/"
               element={
-                <h1 className="w-full bg-[#456990] text-3xl h-20 text-[#d6b880]">
-                  Product Listing Component
-                </h1>
+                <ProductList />
               }
             />
             <Route path="/add" element={<AddProduct />} />

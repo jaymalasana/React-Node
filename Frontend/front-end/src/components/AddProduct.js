@@ -8,14 +8,13 @@ const AddProduct = () => {
   const [error, setError] = useState(false);
 
   const addProduct = async () => {
-    // console.log(name, price, category, company);
-    if (!name || price || category || company) {
+    console.log(name, price, category, company);
+    if (!name || !price || !category || !company) {
       setError(true);
       return false;
     }
 
     const userId = JSON.parse(localStorage.getItem("user"))._id;
-    // console.log(userId);
 
     let result = await fetch("http://localhost:8080/add-product", {
       method: "post",
@@ -25,8 +24,14 @@ const AddProduct = () => {
       },
     });
     result = await result.json();
-    // console.log(result);
+    console.log(result); // Optional: Log the result for debugging
+
+    setName("");
+    setPrice("");
+    setCategory("");
+    setCompany("");
   };
+
   return (
     <div className="bg-[#456990]">
       <h1 className="text-3xl text-center text-[#d6b880]">Login</h1>
@@ -51,7 +56,7 @@ const AddProduct = () => {
       />
       {error && !price && (
         <span className="block text-red-700 font-medium text-center text-xl">
-          Enter valid name
+          Enter valid price
         </span>
       )}
       <input
@@ -63,7 +68,7 @@ const AddProduct = () => {
       />
       {error && !category && (
         <span className="block text-red-700 font-medium text-center text-xl">
-          Enter valid name
+          Enter valid category
         </span>
       )}
       <input
@@ -75,7 +80,7 @@ const AddProduct = () => {
       />
       {error && !company && (
         <span className="block text-red-700 font-medium text-center text-xl">
-          Enter valid name
+          Enter valid company
         </span>
       )}
       <button
