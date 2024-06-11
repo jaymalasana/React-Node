@@ -38,6 +38,15 @@ app.post("/add-product", async (req, res) => {
   res.send(result);
 });
 
+app.get("/products", async (req, res) => {
+  let products = await Product.find();
+  if (products.length > 0) {
+    res.send(products);
+  } else {
+    res.send("No products found");
+  }
+});
+
 console.log("Server Running on port 8080");
 
 app.listen(8080);
