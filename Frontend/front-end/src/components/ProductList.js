@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from "react";
+import { Link } from 'react-router-dom';
 
 const ProductList = () => {
   const [products, setProducts] = useState([]);
@@ -24,57 +25,62 @@ const ProductList = () => {
   };
 
   return (
-    <div className="bg-[#456990]">
-      <h1 className="text-3xl text-center text-[#d6b880]">Product List</h1>
-      {products.map((product) => (
-        <div key={product._id} className="container mx-auto p-4">
-          <table className="min-w-full divide-y divide-gray-200">
-            <thead className="bg-gray-50">
-              <tr>
-                <th className="w-40 h-12 px-6 py-3 text-left text-md font-medium text-gray-500 uppercase tracking-wider">
-                  Name
-                </th>
-                <th className="w-32 h-12 px-6 py-3 text-left text-md font-medium text-gray-500 uppercase tracking-wider">
-                  Price
-                </th>
-                <th className="w-40 h-12 px-6 py-3 text-left text-md font-medium text-gray-500 uppercase tracking-wider">
-                  Category
-                </th>
-                <th className="w-40 h-12 px-6 py-3 text-left text-md font-medium text-gray-500 uppercase tracking-wider">
-                  Company
-                </th>
-                <th className="w-40 h-12 px-6 py-3 text-left text-md font-medium text-gray-500 uppercase tracking-wider">
-                  Operations
-                </th>
-              </tr>
-            </thead>
-            <tbody className="bg-white divide-y divide-gray-200">
-              <tr>
-                <td className="w-40 h-12 px-6 py-4 whitespace-nowrap font-medium text-lg bg-[#516cbc] text-[#d6b880]">
+    <div className="bg-[#456990] min-h-screen p-4">
+      <h1 className="text-3xl text-center text-[#d6b880] mb-6">Product List</h1>
+      <div className="container mx-auto p-4 bg-white rounded shadow">
+        <table className="min-w-full divide-y divide-gray-200">
+          <thead className="bg-gradient-to-r from-[#456990] to-[#6787ab] text-white">
+            <tr>
+              <th className="px-6 py-3 text-left text-sm font-medium uppercase tracking-wider">
+                Name
+              </th>
+              <th className="px-6 py-3 text-left text-sm font-medium uppercase tracking-wider">
+                Price
+              </th>
+              <th className="px-6 py-3 text-left text-sm font-medium uppercase tracking-wider">
+                Category
+              </th>
+              <th className="px-6 py-3 text-left text-sm font-medium uppercase tracking-wider">
+                Company
+              </th>
+              <th className="px-6 py-3 text-left text-sm font-medium uppercase tracking-wider">
+                Operations
+              </th>
+            </tr>
+          </thead>
+          <tbody className="bg-white divide-y divide-gray-200">
+            {products.map((product) => (
+              <tr key={product._id}>
+                <td className="px-6 py-4 whitespace-nowrap font-medium text-lg text-gray-700">
                   {product.name}
                 </td>
-                <td className="w-32 h-12 px-6 py-4 whitespace-nowrap font-medium text-lg bg-[#516cbc] text-[#d6b880]">
-                  $ {product.price}
+                <td className="px-6 py-4 whitespace-nowrap font-medium text-lg text-gray-700">
+                  ${product.price}
                 </td>
-                <td className="w-40 h-12 px-6 py-4 whitespace-nowrap font-medium text-lg bg-[#516cbc] text-[#d6b880]">
+                <td className="px-6 py-4 whitespace-nowrap font-medium text-lg text-gray-700">
                   {product.category}
                 </td>
-                <td className="w-40 h-12 px-6 py-4 whitespace-nowrap font-medium text-lg bg-[#516cbc] text-[#d6b880]">
+                <td className="px-6 py-4 whitespace-nowrap font-medium text-lg text-gray-700">
                   {product.company}
                 </td>
-                <td className="w-40 h-12 px-6 py-4 whitespace-nowrap font-medium text-lg bg-[#516cbc] text-[#d6b880]">
+                <td className="px-6 py-4 whitespace-nowrap font-medium text-lg text-gray-700">
                   <button
-                    className="h-10 w-24 border-2 border-[#8a98c5] hover:bg-[#d6b880] hover:text-black hover:border-black rounded-3xl"
+                    className="h-10 w-24 border-2 border-[#8a98c5] hover:bg-[#d6b880] hover:text-black hover:border-black rounded-3xl mr-2"
                     onClick={() => deleteProduct(product._id)}
                   >
                     Delete
                   </button>
+                  <Link to={`/update/${product._id}`}>
+                    <button className="h-10 w-24 border-2 border-[#8a98c5] hover:bg-[#d6b880] hover:text-black hover:border-black rounded-3xl">
+                      Update
+                    </button>
+                  </Link>
                 </td>
               </tr>
-            </tbody>
-          </table>
-        </div>
-      ))}
+            ))}
+          </tbody>
+        </table>
+      </div>
     </div>
   );
 };
