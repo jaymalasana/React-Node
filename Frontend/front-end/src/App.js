@@ -16,17 +16,12 @@ function App() {
             <Route
               path="/"
               element={
-                <AddProduct />
-              }
-            />
-            <Route
-              path="/add"
-              element={
-                <h1 className="w-full bg-[#456990] text-3xl  h-20 text-[#d6b880]">
-                  Add Product Component
+                <h1 className="w-full bg-[#456990] text-3xl h-20 text-[#d6b880]">
+                  Product Listing Component
                 </h1>
               }
-            />{" "}
+            />
+            <Route path="/add" element={<AddProduct />} />
             <Route
               path="/update"
               element={

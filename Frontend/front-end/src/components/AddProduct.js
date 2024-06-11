@@ -10,7 +10,7 @@ const AddProduct = () => {
     console.log(name, price, category, company);
   };
   return (
-    <div>
+    <div className="bg-[#456990]">
       <h1>Add Product Page</h1>
       <input
         type="text"
