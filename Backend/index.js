@@ -60,6 +60,17 @@ app.get("/product/:id", async (req, res) => {
   }
 })
 
+app.put('/product/:id', async (req, res) => {
+    let result = await Product.updateOne({
+      _id: req.params.id
+    },
+    {
+      $set: req.body
+    } 
+  )
+  res.send(result);
+})
+
 console.log("Server Running on port 8080");
 
 app.listen(8080);
