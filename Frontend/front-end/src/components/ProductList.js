@@ -13,11 +13,21 @@ const ProductList = () => {
     setProducts(result);
   };
 
+  const deleteProduct = async (id) => {
+    let result = await fetch(`http://localhost:8080/product/${id}`, {
+      method: "Delete",
+    });
+    result = await result.json();
+    if (result) {
+      getProducts();
+    }
+  };
+
   return (
     <div className="bg-[#456990]">
       <h1 className="text-3xl text-center text-[#d6b880]">Product List</h1>
-      {products.map((product, index) => (
-        <div key={index} className="container mx-auto p-4">
+      {products.map((product) => (
+        <div key={product._id} className="container mx-auto p-4">
           <table className="min-w-full divide-y divide-gray-200">
             <thead className="bg-gray-50">
               <tr>
@@ -32,6 +42,9 @@ const ProductList = () => {
                 </th>
                 <th className="w-40 h-12 px-6 py-3 text-left text-md font-medium text-gray-500 uppercase tracking-wider">
                   Company
+                </th>
+                <th className="w-40 h-12 px-6 py-3 text-left text-md font-medium text-gray-500 uppercase tracking-wider">
+                  Operations
                 </th>
               </tr>
             </thead>
@@ -48,6 +61,14 @@ const ProductList = () => {
                 </td>
                 <td className="w-40 h-12 px-6 py-4 whitespace-nowrap font-medium text-lg bg-[#516cbc] text-[#d6b880]">
                   {product.company}
+                </td>
+                <td className="w-40 h-12 px-6 py-4 whitespace-nowrap font-medium text-lg bg-[#516cbc] text-[#d6b880]">
+                  <button
+                    className="h-10 w-24 border-2 border-[#8a98c5] hover:bg-[#d6b880] hover:text-black hover:border-black rounded-3xl"
+                    onClick={() => deleteProduct(product._id)}
+                  >
+                    Delete
+                  </button>
                 </td>
               </tr>
             </tbody>
