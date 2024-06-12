@@ -3,6 +3,8 @@ const cors = require("cors");
 require("./db/config");
 const User = require("./db/User");
 const Product = require("./db/Product");
+const Jwt = require("jsonwebtoken");
+const jwtkey = "e-comm";
 
 const app = express();
 
@@ -15,14 +17,24 @@ app.post("/register", async (req, res) => {
   let result = await user.save();
   result = result.toObject();
   delete result.password;
-  res.send(result);
+  Jwt.sign({ result }, jwtkey, { expiresIn: "2h" }, (err, token) => {
+    if (err) {
+      res.send("Something went wrong, Please try after sometime");
+    }
+    res.send({ result, auth: token });
+  });
 });
 
 app.post("/login", async (req, res) => {
   if (req.body.password && req.body.email) {
     let user = await User.findOne(req.body).select("-password");
     if (user) {
-      res.send(user);
+      Jwt.sign({ user }, jwtkey, { expiresIn: "2h" }, (err, token) => {
+        if (err) {
+          res.send("Something went wrong, Please try after sometime");
+        }
+        res.send({ user, auth: token });
+      });
     } else {
       res.send({ result: "User not found" });
     }
@@ -78,7 +90,7 @@ app.get("/search/:key", async (req, res) => {
       { name: { $regex: req.params.key } },
       { price: { $regex: req.params.key } },
       { category: { $regex: req.params.key } },
-      { company: { $regex: req.params.key } }
+      { company: { $regex: req.params.key } },
     ],
   });
   res.send(result);
