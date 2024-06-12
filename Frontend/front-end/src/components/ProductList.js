@@ -9,7 +9,11 @@ const ProductList = () => {
   }, []);
 
   const getProducts = async () => {
-    let result = await fetch("http://localhost:8080/products");
+    let result = await fetch("http://localhost:8080/products", {
+      headers: {
+        authorization: JSON.parse(localStorage.getItem("token")),
+      },
+    });
     result = await result.json();
     setProducts(result);
   };
@@ -103,7 +107,9 @@ const ProductList = () => {
             ) : (
               <tr>
                 <td colSpan="5" className="text-center py-4">
-                  <h1 className="text-xl text-gray-700 font-semibold ">No Result Found</h1>
+                  <h1 className="text-xl text-gray-700 font-semibold ">
+                    No Result Found
+                  </h1>
                 </td>
               </tr>
             )}
