@@ -7,6 +7,7 @@ import Login from "./components/Login";
 import AddProduct from "./components/AddProduct";
 import ProductList from "./components/ProductList";
 import UpdateProduct from "./components/UpdateProduct";
+import Profile from "./components/Profile";
 
 function App() {
   return (
@@ -26,14 +27,7 @@ function App() {
                 </h1>
               }
             />
-            <Route
-              path="/profile"
-              element={
-                <h1 className="w-full bg-[#456990] text-3xl h-20 text-[#d6b880]">
-                  Profile Component
-                </h1>
-              }
-            />
+            <Route path="/profile" element={<Profile />} />
           </Route>
           <Route path="/login" element={<Login />} />
           <Route path="/signup" element={<SignUp />} />
